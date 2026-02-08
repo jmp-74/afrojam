@@ -18,7 +18,7 @@
             font-family: 'Segoe UI', Roboto, sans-serif;
             color: var(--text);
             background-color: var(--dark-bg);
-            /* HINTERGRUND GEÄNDERT: hintergrund.jpg */
+            /* Hintergrundbild */
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bilder/hintergrund.jpg');
             background-attachment: fixed; 
             background-position: center; 
@@ -108,7 +108,18 @@
         }
         .submit-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(243, 156, 18, 0.4); }
 
+        /* Footer & Modals CSS */
         footer { text-align: center; padding: 40px; color: #888; font-size: 0.9rem; border-top: 1px solid var(--gold); }
+        .legal-links { margin-top: 15px; }
+        .legal-links a { color: var(--gold); text-decoration: none; margin: 0 10px; cursor: pointer; transition: 0.3s; }
+        .legal-links a:hover { color: #fff; }
+
+        .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); overflow-y: auto; }
+        .modal-content { background: #1a1a1a; margin: 5% auto; padding: 40px; border: 1px solid var(--gold); width: 85%; max-width: 800px; border-radius: 15px; color: #ddd; line-height: 1.6; }
+        .modal-content h2 { color: var(--gold); border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 0; }
+        .modal-content h3 { color: #fff; margin-top: 20px; }
+        .close-btn { color: var(--gold); float: right; font-size: 30px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .close-btn:hover { color: #fff; }
 
         @media (max-width: 768px) {
             .form-grid { grid-template-columns: 1fr; }
@@ -158,7 +169,7 @@
     </div>
 
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="close-lightbox">&times;</span>
+        <span class="close-lightbox">×</span>
         <img id="lightbox-img" src="">
     </div>
 
@@ -204,7 +215,60 @@
 
 <footer>
     <p>© 2026 DJ AfroJam – Offizieller Partner der Chippingdales e.V.</p>
+    <div class="legal-links">
+        <a onclick="document.getElementById('imp').style.display='block'">Impressum</a> | 
+        <a onclick="document.getElementById('dat').style.display='block'">Datenschutz</a> |
+        <a onclick="document.getElementById('lic').style.display='block'">KI Lizenz</a>
+    </div>
 </footer>
+
+<div id="imp" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="document.getElementById('imp').style.display='none'">×</span>
+        <h2>Impressum</h2>
+        <p><strong>Angaben gemäß § 5 TMG</strong></p>
+        <p>
+            Jean Michel Prothmann<br>
+            Bissinger Str. 37<br>
+            73252 Lenningen<br>
+            Deutschland
+        </p>
+        <h3>Kontakt</h3>
+        <p>E-Mail: afrojam@freetime-fun.de</p>
+        <p>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>Jean Michel Prothmann<br>Bissinger Str. 37<br>73252 Lenningen</p>
+    </div>
+</div>
+
+<div id="dat" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="document.getElementById('dat').style.display='none'">×</span>
+        <h2>Datenschutzerklärung</h2>
+        <h3>1. Datenschutz auf einen Blick</h3>
+        <p><strong>Allgemeine Hinweise</strong><br>
+        Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+        
+        <h3>2. Datenerfassung auf unserer Website</h3>
+        <p><strong>Kontaktformular / E-Mail Kontakt</strong><br>
+        Wenn Sie uns per Kontaktformular oder E-Mail Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+        
+        <p><strong>Server-Log-Dateien</strong><br>
+        Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt (z.B. Browsertyp, Uhrzeit der Serveranfrage). Diese Daten sind nicht bestimmten Personen zuordenbar.</p>
+    </div>
+</div>
+
+<div id="lic" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="document.getElementById('lic').style.display='none'">×</span>
+        <h2>KI Lizenz & Urheberrecht</h2>
+        <h3>Generierte Inhalte</h3>
+        <p>Teile der Texte, Bilder und Musikkompositionen auf dieser Webseite wurden unter Zuhilfenahme künstlicher Intelligenz erstellt und durch DJ AfroJam kuratiert und bearbeitet.</p>
+        
+        <h3>Nutzungsrechte</h3>
+        <p>Alle auf dieser Website veröffentlichten Inhalte (Bilder, Texte, Audiofiles) unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers (Jean Michel Prothmann / DJ AfroJam). Die Nutzungsrechte gehören Jean Michel Prothmann. KI Song Generator: KI Musik Erstellen für lizenzfreie Songs.</p>
+        
+        <p>Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
+    </div>
+</div>
 
 <script>
     function openLightbox(src) {
@@ -213,6 +277,13 @@
     }
     function closeLightbox() {
         document.getElementById('lightbox').style.display = 'none';
+    }
+    
+    // Modal Logic
+    window.onclick = function(event) {
+        if (event.target.className == 'modal') {
+            event.target.style.display = "none";
+        }
     }
 </script>
 
