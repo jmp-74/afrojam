@@ -10,6 +10,7 @@
             --dark-bg: #0a0a0a;
             --card-bg: rgba(10, 10, 10, 0.92);
             --text: #ffffff;
+            --sc-orange: #ff5500; /* SoundCloud Farbe */
         }
 
         html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
@@ -18,7 +19,7 @@
             font-family: 'Segoe UI', Roboto, sans-serif;
             color: var(--text);
             background-color: var(--dark-bg);
-            /* Hintergrundbild: hintergrund_afro.jpg */
+            /* HINTERGRUND: Der Afro-Look */
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('bilder/hintergrund_afro.jpg');
             background-attachment: fixed; 
             background-position: center; 
@@ -47,7 +48,7 @@
             line-height: 1.8; margin-bottom: 40px; text-align: center; backdrop-filter: blur(10px);
         }
 
-        /* Galerie-Grid für 3 Bilder */
+        /* Galerie-Grid */
         .showcase-grid {
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -59,7 +60,7 @@
             border-radius: 15px; overflow: hidden; border: 2px solid var(--gold);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.3s;
             cursor: pointer;
-            height: 350px; /* Einheitliche Höhe */
+            height: 400px; 
             background: #000;
         }
         .showcase-item:hover { transform: scale(1.03); border-color: #fff; }
@@ -87,6 +88,32 @@
         .song-desc { font-size: 0.9rem; color: #ccc; margin-bottom: 15px; }
         
         audio { width: 100%; filter: invert(100%) hue-rotate(180deg) brightness(1.5); }
+
+        /* SoundCloud Section */
+        .soundcloud-box {
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            border: 2px solid var(--sc-orange); /* Oranger Rahmen */
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 0 30px rgba(255, 85, 0, 0.2);
+        }
+        .soundcloud-title { color: #fff; font-size: 2rem; margin-bottom: 10px; }
+        .soundcloud-text { color: #ddd; margin-bottom: 25px; font-size: 1.1rem; }
+        .sc-btn {
+            background: var(--sc-orange);
+            color: #fff;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        .sc-btn:hover { background: #fff; color: var(--sc-orange); box-shadow: 0 0 20px var(--sc-orange); }
 
         /* Formular */
         .form-section { 
@@ -138,13 +165,13 @@
 
     <div class="showcase-grid">
         <div class="showcase-item" onclick="openLightbox('bilder/hintergrund_afro.jpg')">
-            <img src="bilder/hintergrund_afro.jpg" alt="DJ AfroJam Style">
-        </div>
-        <div class="showcase-item" onclick="openLightbox('bilder/dj_hoch.JPG')">
-            <img src="bilder/dj_hoch.JPG" alt="Wedding Party">
+            <img src="bilder/hintergrund_afro.jpg" alt="DJ AfroJam Original">
         </div>
         <div class="showcase-item" onclick="openLightbox('bilder/dj_gold.JPG')">
-            <img src="bilder/dj_gold.JPG" alt="Golden Beats">
+            <img src="bilder/dj_gold.JPG" alt="DJ AfroJam Gold Edition">
+        </div>
+        <div class="showcase-item" onclick="openLightbox('bilder/dj_hoch.JPG')">
+            <img src="bilder/dj_hoch.JPG" alt="DJ AfroJam Live Event">
         </div>
     </div>
 
@@ -188,6 +215,16 @@
             </div>
 
         </div>
+    </section>
+
+    <section class="soundcloud-box">
+        <h2 class="soundcloud-title">Mehr auf SoundCloud</h2>
+        <p class="soundcloud-text">
+            Willst du die kompletten Sets hören? Folge mir auf SoundCloud für exklusive Mixe, längere Versionen und noch mehr Bass.
+        </p>
+        <a href="https://soundcloud.com/jm-pro-bike/sets/afrojam-selfmade?si=04c196b631b14862ae272b9a1e708710&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" class="sc-btn">
+            ZUM SOUNDCLOUD PROFIL ☁️
+        </a>
     </section>
 
     <section class="form-section">
